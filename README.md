@@ -1,87 +1,58 @@
-# Welcome to React Router!
+📄 AI-Powered ATS Resume Analyzer
+A high-performance, AI-driven application designed to help job seekers bridge the gap between their resumes and job descriptions. This tool performs deep semantic analysis to provide actionable feedback, matching scores, and optimization tips.
 
-A modern, production-ready template for building full-stack React applications using React Router.
+✨ Key Features
+Intelligent Parsing: Converts complex PDF resumes into structured data using OCR and Image Analysis.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+Semantic Matching: Goes beyond keyword matching by using AI to understand the context and intent of your experience vs. the job requirements.
 
-## Features
+Instant ATS Scoring: Provides a percentage-based score reflecting how well the resume is optimized for specific Job Descriptions.
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+Actionable Insights: Generates specific suggestions on missing skills, phrasing improvements, and formatting issues.
 
-## Getting Started
+Privacy-First AI: Built with Puter.js, utilizing client-side cloud execution which keeps your data secure without central server-side logging of sensitive documents.
 
-### Installation
+🛠️ Tech Stack
+Frontend: React Router v7 (The evolution of Remix) for high-performance Server-Side Rendering (SSR).
 
-Install the dependencies:
+Styling: Tailwind CSS for a modern, responsive "Glassmorphism" UI.
 
-```bash
+AI Engine: Puter.js for cloud-native AI models, File System (FS), and Key-Value (KV) storage.
+
+Deployment: Vercel leveraging Serverless Functions and Edge caching.
+
+Language: TypeScript for robust, type-safe development.
+
+🚀 Deployment & Infrastructure
+This application is optimized for Vercel's Serverless Architecture.
+
+Global Performance: Utilizing React Router v7's Vercel Preset to handle SSR and edge-ready API routes.
+
+Serverless Scaling: Configured with a maxDuration: 60 export in route handlers to ensure complex AI analysis of large PDF files is completed without function timeouts.
+
+No-Backend Strategy: By using Puter.js, the app maintains a "thick client" architecture where AI tasks and file storage are handled through the user's secure browser session, eliminating the need for traditional server-side API keys.
+
+💻 Local Setup
+Clone the Repo:
+
+Bash
+git clone https://github.com/vsingh2201/ai-resume-analyzer.git
+cd ai-resume-analyzer
+Install Dependencies:
+
+Bash
 npm install
-```
+Run Development Server:
 
-### Development
-
-Start the development server with HMR:
-
-```bash
+Bash
 npm run dev
-```
+Build for Production:
 
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
+Bash
 npm run build
-```
+🧠 How It Works
+PDF Conversion: The app uses a custom convertPdfToImage utility to ensure the AI can "see" the exact layout and formatting of your resume, just like a modern ATS.
 
-## Deployment
+Instruction Synthesis: A dynamic prompt engine (prepareInstructions) combines the Job Description and the Resume content to guide the AI model.
 
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+Cloud-Native Processing: Puter's ai.chat is invoked to process the data, returning a structured JSON response that is instantly rendered into the UI.
