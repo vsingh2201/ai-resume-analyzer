@@ -7,6 +7,8 @@ import {convertPdfToImage} from "~/lib/pdf2img";
 import {generateUUID} from "~/lib/utils";
 import {prepareInstructions} from "../../constants";
 
+export const maxDuration = 60; // Allows the AI 60 seconds to finish
+
 const Upload = () => {
     const { auth, isLoading, fs, ai, kv } = usePuterStore();
     const navigate = useNavigate();
